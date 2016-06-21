@@ -1,0 +1,13 @@
+c:\users\waseem\documents\visual studio 2015\Projects\OAuthXamarin\OAuth2Manager\bin\Debug\OAuth2Manager.dll
+c:\users\waseem\documents\visual studio 2015\Projects\OAuthXamarin\OAuth2Manager\bin\Debug\OAuth2Manager.pdb
+c:\users\waseem\documents\visual studio 2015\Projects\OAuthXamarin\OAuth2Manager\bin\Debug\Newtonsoft.Json.dll
+c:\users\waseem\documents\visual studio 2015\Projects\OAuthXamarin\OAuth2Manager\bin\Debug\Xamarin.Forms.Core.dll
+c:\users\waseem\documents\visual studio 2015\Projects\OAuthXamarin\OAuth2Manager\bin\Debug\Xamarin.Forms.Platform.dll
+c:\users\waseem\documents\visual studio 2015\Projects\OAuthXamarin\OAuth2Manager\bin\Debug\Xamarin.Forms.Xaml.dll
+c:\users\waseem\documents\visual studio 2015\Projects\OAuthXamarin\OAuth2Manager\bin\Debug\Newtonsoft.Json.xml
+c:\users\waseem\documents\visual studio 2015\Projects\OAuthXamarin\OAuth2Manager\bin\Debug\Xamarin.Forms.Core.xml
+c:\users\waseem\documents\visual studio 2015\Projects\OAuthXamarin\OAuth2Manager\bin\Debug\Xamarin.Forms.Xaml.xml
+c:\users\waseem\documents\visual studio 2015\Projects\OAuthXamarin\OAuth2Manager\obj\Debug\OAuth2Manager.Controls.FlexibleWebAuthView.xaml.g.cs
+c:\users\waseem\documents\visual studio 2015\Projects\OAuthXamarin\OAuth2Manager\obj\Debug\OAuth2Manager.dll
+c:\users\waseem\documents\visual studio 2015\Projects\OAuthXamarin\OAuth2Manager\obj\Debug\OAuth2Manager.pdb
+C:\Users\Waseem\Documents\Visual Studio 2015\Projects\OAuthXamarin\OAuth2Manager\obj\Debug\OAuth2Manager.csprojResolveAssemblyReference.cache

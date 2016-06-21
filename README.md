@@ -8,7 +8,7 @@ Usage:
     OAuthUiBroker.ShowOAuthView(oAuth);
     
     OAuthUiBroker.OnAuthenticated += async (sender, args) => {
-      await new MessageDialog("Access Token: " + args.AccessToken + 
+      await Application.Current.MainPage.DisplayAlert("Message", "Access Token: " + args.AccessToken + 
                               "\nRefreshToken: " + args.RefreshToken + 
-                              "\nExpires In: " + args.ExpiresIn).ShowAsync();
+                              "\nExpires In: " + args.ExpiresIn, "OK");
     }

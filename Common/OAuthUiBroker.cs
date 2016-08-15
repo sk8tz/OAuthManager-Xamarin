@@ -33,22 +33,6 @@ namespace OAuth2Manager.Common
             };
         }
 
-        public static void ShowOAuthView(OAuth2BrowserBasedFlow oAuth)
-        {
-            currentPage = Application.Current.MainPage;
-            var oAuthView = new FlexibleWebAuthView();
-            oAuth.InvokeUserAuthorization(oAuthView);
-            Application.Current.MainPage = oAuthView;
-            oAuthView.Navigate(oAuthView.AuthorizeUrl);
-
-            oAuthView.OAuthSuccess += async (sender, args) =>
-            {
-                await oAuth.ProcessAuthorizationAsync(sender as Uri);
-                await Application.Current.MainPage.DisplayAlert("Access Token", oAuth.AccessToken.Code, "OK");
-                RestoreView();
-            };
-        }
-
         public static void ShowOAuthView(OAuth2PinBasedFlow oAuth)
         {
             currentPage = Application.Current.MainPage;
@@ -59,7 +43,7 @@ namespace OAuth2Manager.Common
                 Text = "Open URL in Browser: " + oAuth.GetUserTokenUrl(),
                 VerticalTextAlignment = TextAlignment.Center
             };
-            var pinTextBox = new Entry { WidthRequest =150.0f };
+            var pinTextBox = new Entry { WidthRequest = 150.0f };
             var okButton = new Button { Text = "OK" };
             okButton.Clicked += async (sender, args) =>
             {
@@ -82,9 +66,43 @@ namespace OAuth2Manager.Common
             stackPanel.Children.Add(okButton);
 
             contentDialog.Content = stackPanel;
+            OnAuthenticated?.Invoke(oAuth, new AuthenticatedEventArgs(oAuth.AccessToken.Code, oAuth.AccessToken.RefreshToken, oAuth.AccessToken.Expires));
             Application.Current.MainPage = contentDialog;
         }
 
+        public static void ShowOAuthView(OAuth2ImplicitGrantFlow oAuth)
+        {
+            currentPage = Application.Current.MainPage;
+            var oAuthView = new FlexibleWebAuthView();
+            oAuth.InvokeUserAuthorization(oAuthView);
+            Application.Current.MainPage = oAuthView;
+            oAuthView.Navigate(oAuthView.AuthorizeUrl);
+
+            oAuthView.OAuthSuccess += async (sender, args) =>
+            {
+                await oAuth.ProcessAuthorizationAsync(sender as Uri);
+                await Application.Current.MainPage.DisplayAlert("Access Token", oAuth.AccessToken.Code, "OK");
+                RestoreView();
+                OnAuthenticated?.Invoke(oAuth, new AuthenticatedEventArgs(oAuth.AccessToken.Code, oAuth.AccessToken.RefreshToken, oAuth.AccessToken.Expires));
+            };
+        }
+
+        public static async void ShowOAuthView(OAuth2ClientCredentials oAuth)
+        {
+            var success = await oAuth.InvokeUserAuthorization();
+            if(success)
+                OnAuthenticated?.Invoke(oAuth, new AuthenticatedEventArgs(oAuth.AccessToken.Code, oAuth.AccessToken.RefreshToken, oAuth.AccessToken.Expires));
+        }
+
+        public static async void ShowOAuthView(OAuth2ResourceOwnerPassword oAuth)
+        {
+            var success = await oAuth.InvokeUserAuthorization();
+            if(success)
+                OnAuthenticated?.Invoke(oAuth, new AuthenticatedEventArgs(oAuth.AccessToken.Code, oAuth.AccessToken.RefreshToken, oAuth.AccessToken.Expires));
+        }
+
+
+        
         private static void RestoreView()
         {
             Application.Current.MainPage = currentPage;

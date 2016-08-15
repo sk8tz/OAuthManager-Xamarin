@@ -8,9 +8,9 @@ using OAuth2Manager.Extensions;
 
 namespace OAuth2Manager.Core.Methods.TwoLegged
 {
-    public class OAuth2BrowserBasedFlow : OAuth2Base, IUserConsentHandler
+    public class OAuth2ImplicitGrantFlow : OAuth2Base, IUserConsentHandler
     {
-        public OAuth2BrowserBasedFlow(string clientId, string redirectUrl, string scope, string authorizationUrl) :
+        public OAuth2ImplicitGrantFlow(string clientId, string redirectUrl, string scope, string authorizationUrl) :
             base(clientId, redirectUrl, scope, authorizationUrl)
         {
 

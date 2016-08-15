@@ -7,10 +7,10 @@ using OAuth2Manager.Common;
 
 namespace OAuth2Manager.Core.Methods.TwoLegged
 {
-    public class OAuth2UserCredentials : OAuth2Base
+    public class OAuth2ClientCredentials : OAuth2Base
     {
         private string clientSecret = null;
-        public OAuth2UserCredentials(
+        public OAuth2ClientCredentials(
                     string clientId, string clientSecret,
                     string redirectUrl, string scope, string authorizationUrl)
             : base(clientId, redirectUrl, scope, authorizationUrl)

@@ -35,6 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Common\AuthenticatedEventArgs.cs" />
     <Compile Include="Common\IAuthProvider.cs" />
     <Compile Include="Common\IUserAuthorizationViewer.cs" />
     <Compile Include="Common\IUserConsentHandler.cs" />
@@ -52,9 +53,9 @@
     <Compile Include="Core\Methods\ThreeLegged\OAuth2PinBasedFlow.cs" />
     <Compile Include="Core\Methods\ThreeLegged\OAuth2ThreeLeggedBase.cs" />
     <Compile Include="Core\Methods\ThreeLegged\OAuth2WebServerFlow.cs" />
-    <Compile Include="Core\Methods\TwoLegged\OAuth2BrowserBasedFlow.cs" />
+    <Compile Include="Core\Methods\TwoLegged\OAuth2ImplicitGrantFlow.cs" />
     <Compile Include="Core\Methods\TwoLegged\OAuth2ResourceOwnerPassword.cs" />
-    <Compile Include="Core\Methods\TwoLegged\OAuth2UserCredentials.cs" />
+    <Compile Include="Core\Methods\TwoLegged\OAuth2ClientCredentials.cs" />
     <Compile Include="Core\OAuth2Authorizer.cs" />
     <Compile Include="Core\OAuth2Base.cs" />
     <Compile Include="Core\OAuthMessageHandler.cs" />
